@@ -1,0 +1,31 @@
+/* src/components/Contact.module.css */
+.section {
+  background: linear-gradient(135deg, #264653 0%, #1e3a8a 100%);
+  color: #f4a261;
+  padding: 2rem 1rem;
+}
+.inner {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.heading {
+  font-size: 2rem;
+}
+.name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.info {
+  font-size: 1rem;
+  color: #ffffff;
+}
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.link:hover {
+  text-decoration: underline;
+}

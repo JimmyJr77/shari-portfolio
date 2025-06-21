@@ -1,0 +1,84 @@
+.section {
+  padding: 4rem 1rem;
+  background-color: #fff;
+}
+.inner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.heading {
+  font-size: 2rem;
+  color: #264653;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.card {
+  border-radius: 0.5rem;
+  border: .1px solid #f4a261;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  width: 100%;
+  object-fit: cover;
+  height: 160px;
+}
+.body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.title {
+  font-size: 1.25rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+.desc {
+  flex: 1;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.kpi {
+  font-weight: 600;
+  color: #f4a261;
+}
+
+.detailCard {
+  text-decoration: none;
+}
+.detailCard .card {
+  /* match other cards but maybe use a different accent */
+  border: .5px solid #1e3a8a;
+}
+.detailCard .title {
+  color: #1e3a8a;
+}
+
+/* Detail card overrides */
+.detailCard {
+  grid-column: 1 / -1;       /* span full width of grid */
+  text-decoration: none;
+}
+
+.detailCard .card {
+  border: .1px solid #1e3a8a; /* stronger border */
+}
+
+.detailCard .icon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Purple glow on hover */
+.detailCard:hover .card {
+  box-shadow: 0 0 12px rgba(93, 0, 255, 0.441);
+}

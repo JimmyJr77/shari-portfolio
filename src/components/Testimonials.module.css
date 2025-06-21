@@ -1,0 +1,48 @@
+.section {
+  padding-top:    0rem;
+  padding-right:  1rem;
+  padding-bottom: 4rem;
+  padding-left:   1rem;
+}
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1;
+  text-align: center;
+}
+.quote {
+  font-style: italic;
+  color: #264653;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.author {
+  font-size: 0.875rem;
+  color: #555;
+}
+.role {
+  color: #1e3a8a;
+  font-weight: 500;
+}
+.control {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #264653;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+.control:hover {
+  color: #1e3a8a;
+}
