@@ -1,6 +1,7 @@
+// src/App.jsx
 import React, { useEffect } from 'react'
 import {
-  BrowserRouter,
+  HashRouter as Router,
   Routes,
   Route,
   useLocation
@@ -29,7 +30,7 @@ function ScrollHandler() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <ScrollHandler />
       <Layout>
         <Routes>
@@ -38,6 +39,6 @@ export default function App() {
           <Route path="/work" element={<Work />} />
         </Routes>
       </Layout>
-    </BrowserRouter>
+    </Router>
   )
 }

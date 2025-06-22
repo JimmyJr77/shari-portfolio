@@ -1,4 +1,6 @@
+// src/components/Hero.jsx
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -10,9 +12,9 @@ export default function Hero() {
       <p className={styles.subtitle}>
         I design trust. From federal reforms to multimillion-dollar philanthropic investments, I transform complexity into clear narratives and measurable impact.
       </p>
-      <a href="#contact" className={styles.cta}>
+      <Link to="/#contact" className={styles.cta}>
         Let’s Connect
-      </a>
+      </Link>
     </section>
   )
 }
