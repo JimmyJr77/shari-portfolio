@@ -10,7 +10,7 @@ export default function Navbar() {
     <nav className={styles.nav}>
       <div className={styles.inner}>
         <Link to="/" className={styles.logo}>
-          Arroyo-Brown
+          Shari Arroyo-Brown
         </Link>
 
         {/* Hamburger button */}
