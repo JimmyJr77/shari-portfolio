@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import React from 'react'
 import Hero from '../components/Hero'
+import ParallaxBoard from '../components/ParallaxBoard'
 import Pillars from '../components/Pillars'
 import CaseStudies from '../components/CaseStudies'
 import Testimonials from '../components/Testimonials'
@@ -12,8 +13,10 @@ export default function Home() {
     <div id="top">
       <Hero />         {/* section with id="top" if you also have it in Hero */}
       <Pillars />      {/* section with id="services" */}
+      <ParallaxBoard />
       <CaseStudies />  {/* section with id="cases" */}
       <Testimonials /> {/* section with id="testimonials" */}
+      <ParallaxBoard />
       <Contact />      {/* section with id="contact" */}
     </div>
   )

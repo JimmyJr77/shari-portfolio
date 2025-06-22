@@ -1,0 +1,13 @@
+.parallaxSection {
+  height: 60vh;                       /* set whatever fixed height you like */
+  background-image: url('/assets/comms_whiteboard.jpg');
+  background-attachment: fixed;       /* “parallax” effect */
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;                    /* span full container width */
+  height: 30vh;                   /* lock your desired height */
+  background-position: center;    /* center crop */
+}
+
+
