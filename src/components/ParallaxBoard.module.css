@@ -1,13 +1,19 @@
+/* src/components/ParallaxBoard.module.css */
+
+/* DESKTOP: full-width parallax section */
 .parallaxSection {
-  height: 60vh;                       /* set whatever fixed height you like */
+  width: 100vw;                          /* span full viewport */
+  height: 30vh;                          /* fixed section height */
   background-image: url('/assets/comms_whiteboard.jpg');
-  background-attachment: fixed;       /* “parallax” effect */
+  background-attachment: fixed;          /* parallax effect */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100vw;                    /* span full container width */
-  height: 30vh;                   /* lock your desired height */
-  background-position: center;    /* center crop */
 }
 
-
+/* MOBILE: remove the entire section */
+@media (max-width: 768px) {
+  .parallaxSection {
+    display: none;                       /* hide on phones/tablets */
+  }
+}

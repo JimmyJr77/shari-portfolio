@@ -102,11 +102,6 @@
 
 /* small-screen fallback */
 @media (max-width: 600px) {
-  .ring1,
-  .ring2,
-  .ring3 {
-    display: none;
-  }
   .photoWrapper {
     width: 150px;
     height: 150px;
