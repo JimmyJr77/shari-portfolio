@@ -5,6 +5,14 @@ export default function About() {
   return (
     <section className={styles.about}>
       <div className={styles.inner}>
+        {/* Photo */}
+        <div className={styles.photoContainer}>
+          <img
+            src="/assets/shari-photo.jpg"
+            alt="Shari Arroyo-Brown"
+            className={styles.photo}
+          />
+        </div>
         <h1 className={styles.heading}>About Me</h1>
         <p>
           I’m a senior communications and brand strategist with more than a decade

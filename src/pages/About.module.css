@@ -1,3 +1,4 @@
+/* src/pages/About.module.css */
 .about {
   padding: 4rem 1rem;
   background-color: #fff;
@@ -8,13 +9,25 @@
   margin: 0 auto;
   line-height: 1.6;
 }
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 9999px; /* circular */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 .heading {
   font-size: 2rem;
   color: #264653;
   margin-bottom: 1.5rem;
   text-align: center;
 }
-/* CV link */
+/* (rest of your existing styles…) */
 .cvContainer {
   text-align: center;
   margin-top: 2.5rem;
