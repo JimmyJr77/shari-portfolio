@@ -1,7 +1,10 @@
 .nav {
+  position: relative;   /* establishes a new stacking context */
+  z-index: 1000;        /* higher than hero content */
   background: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 .inner {
   max-width: 1024px;
   margin: 0 auto;
@@ -68,6 +71,7 @@
     opacity: 0;
     pointer-events: none;
     transition: transform 0.2s, opacity 0.2s;
+    z-index: 1001;      /* above the nav itself */
   }
   .links.open {
     transform: translateY(0);
@@ -77,5 +81,4 @@
   .hamburger {
     display: flex;
   }
-  /* hide the desktop links when collapsed */
 }
