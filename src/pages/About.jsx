@@ -1,18 +1,20 @@
+// src/pages/About.jsx
 import React from 'react'
 import styles from './About.module.css'
 
 export default function About() {
   return (
-    <section className={styles.about}>
+    <section id="about" className={styles.about}>
       <div className={styles.inner}>
         {/* Photo */}
         <div className={styles.photoContainer}>
           <img
-            src="/assets/shari-photo.jpg"
+            src={`${import.meta.env.BASE_URL}assets/shari-photo.jpg`}
             alt="Shari Arroyo-Brown"
             className={styles.photo}
           />
         </div>
+
         <h1 className={styles.heading}>About Me</h1>
         <p>
           I’m a senior communications and brand strategist with more than a decade
@@ -42,10 +44,11 @@ export default function About() {
           message, strengthen their brand, and make their work matter to the people
           who need to hear it most.
         </p>
-        {/* New CV download link */}
+
+        {/* Download CV */}
         <div className={styles.cvContainer}>
           <a
-            href="/assets/Shari-CV.pdf"
+            href={`${import.meta.env.BASE_URL}assets/Shari-CV.pdf`}
             download
             className={styles.cvButton}
           >
@@ -54,5 +57,5 @@ export default function About() {
         </div>
       </div>
     </section>
-)
+  )
 }
