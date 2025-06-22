@@ -5,7 +5,7 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;                    /* span full container width */
+  width: 100vw;                    /* span full container width */
   height: 30vh;                   /* lock your desired height */
   background-position: center;    /* center crop */
 }
