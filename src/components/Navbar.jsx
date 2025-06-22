@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className={styles.inner}>
         {/* Logo always goes home */}
         <Link to="/" className={styles.logo}>
-          Arroyo-Brown
+          Shari Arroyo-Brown
         </Link>
         <ul className={styles.links}>
           <li>
