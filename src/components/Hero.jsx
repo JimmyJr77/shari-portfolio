@@ -39,7 +39,7 @@ export default function Hero() {
           Stories People Trust and Act On
         </h1>
         <p className={styles.subtitle}>
-          I design trust. From federal reforms to multimillion-dollar philanthropic investments, 
+          From federal reforms to multimillion-dollar philanthropic investments, 
           I transform complexity into clear narratives and measurable impact.
         </p>
         <Link to="/#contact" className={styles.cta}>

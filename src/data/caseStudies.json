@@ -2,22 +2,22 @@
   {
     "id": 1,
     "title": "DHS ‘Study in the States’ Platform",
-    "description": "Oversaw redesign and migration of studyinthestates.dhs.gov—improving accessibility, UX, and compliance.",
-    "kpi": "42% increase in guideline comprehension",
+    "description": "Oversaw several web deployments to enhance accessibility, UX, and public engagement to increase understanding of complex policies across federal platforms.",
+    "kpi": "30% decrease in general inquires, questions, or challenges on federal policies from stakeholders",
     "img": "assets/dhs-platform.jpg"
   },
   {
     "id": 2,
-    "title": "Blue Meridian Brand Refresh",
-    "description": "Led end-to-end creative strategy—voice, visual identity, and web layouts—for a $3B philanthropic fund.",
-    "kpi": "30% spike in web engagement",
+    "title": "Blue Meridian Campaign Strategy + Brand Management",
+    "description": "Drove strategic impact by developing the organization’s voice across digital, print, and video platforms to ensure consistency, clarity, and resonance.",
+    "kpi": "Garnered more than 500 national and local press hits for a $385M philanthropic narrative-change campaign",
     "img": "assets/blue-meridian.jpg"
   },
   {
     "id": 3,
-    "title": "DOE Bioenergy Office Migration",
+    "title": "DOE Bioenergy Office Site Migration",
     "description": "Managed Drupal migration and multimedia asset creation for DOE’s Bioenergy Technologies Office.",
-    "kpi": "50+ monthly updates, zero downtime",
+    "kpi": "Managed 50+ monthly web updates",
     "img": "assets/doe-beto.jpg"
   }
 ]

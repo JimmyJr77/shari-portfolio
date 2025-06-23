@@ -6,18 +6,18 @@ const PILLARS = [
     title: 'Narrative Precision',
     description:
       'Distilling complex, multi-stakeholder initiatives into clear, compelling stories that drive understanding and action.',
-    kpi: '42% lift in DHS guideline comprehension'
+    kpi: '42% increase in DHS federal regulation awareness and comprehension'
   },
   {
-    title: 'Design-Driven Activation',
+    title: 'Data & Impact Driven Activation',
     description:
-      'Marrying narrative and visual design to create immersive campaigns that boost engagement and brand recall.',
-    kpi: '30% engagement spike post–Blue Meridian rebrand'
+      'Bridging the gap between messaging and visual designs to create immersive campaigns that boost engagement and brand recognition.',
+    kpi: '40% increase in stakeholder engagement and 60% increase in campaign efficiency'
   },
   {
-    title: 'Crisis-Ready Leadership',
+    title: 'Crisis-Sheilding Leadership',
     description:
-      'Anticipating and navigating high-stakes moments to protect and even enhance reputation under pressure.',
+      'Creating strategies that protect C-suite leadership and the organization’s reputation and brand under high-stakes challenges.',
     kpi: 'Zero negative press on $10M education finance launch'
   }
 ]

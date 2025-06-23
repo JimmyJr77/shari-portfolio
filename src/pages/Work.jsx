@@ -55,7 +55,7 @@ const SECTIONS = [
   },
   {
     heading: 'Graphic Design & Visual Arts',
-    desc: `Visuals amplify your story. I design everything from infographics and event signage to pitch decks and social assets—ensuring each piece reinforces your narrative and leaves a lasting impression.`,
+    desc: `Visuals amplify your story. From infographics and event signage to pitch decks and social assets, I ensure each piece of collateral reinforces your organization’s goals and leaves a lasting impression.`,
     items: [
       { label: 'DHS Infographic', href: '/assets/dhs-infographic.pdf' },
       { label: 'Blue Meridian Partners Infographic', href: '/assets/blue-meridian-infographic.pdf' }

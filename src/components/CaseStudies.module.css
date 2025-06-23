@@ -18,6 +18,7 @@
   gap: 2rem;
 }
 .card {
+  background-color:rgba(34, 18, 126, 0.034);
   border-radius: 0.5rem;
   border: .1px solid #f4a261;
   overflow: hidden;
@@ -80,5 +81,5 @@
 
 /* Purple glow on hover */
 .detailCard:hover .card {
-  box-shadow: 0 0 12px rgba(93, 0, 255, 0.441);
+  box-shadow: 0 0 12px rgba(33, 10, 125, 0.441);
 }
