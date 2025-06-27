@@ -31,6 +31,7 @@ export default function Navbar() {
           <li><Link to="/"       className={styles.link}>Home</Link></li>
           <li><Link to="/#services" className={styles.link}>Services</Link></li>
           <li><Link to="/#cases"    className={styles.link}>Case Studies</Link></li>
+          <li><Link to="/work"    className={styles.link}>Deliverables</Link></li>
           <li><Link to="/#contact"  className={styles.link}>Contact</Link></li>
           <li><Link to="/about"     className={styles.link}>About</Link></li>
         </ul>
