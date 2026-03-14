@@ -122,7 +122,10 @@ const SECTIONS = [
     heading: 'Video Production',
     img: 'assets/video-production.jpg',
     desc: `Video brings your message to life. From concept and storyboarding to filming and editing, I produce videos that engage emotions, simplify complexity, and amplify impact.`,
-    items: [],  // Videos excluded from repo (exceed GitHub 100MB limit) - add external URLs when hosted
+    items: [
+      { label: 'Blue Meridian Branded Video (.mp4)', href: 'https://drive.google.com/file/d/19BrdUumHUR7nHUa4KxWBIZgbZCUzN12q/view?usp=sharing' },
+      { label: 'Blue Meridian Executive Profile Video (.mp4)', href: 'https://drive.google.com/file/d/1PIofMgy_s3TGWZLvYKrfYjoSOZ9ci6W7/view?usp=drive_link' },
+    ],
   },
 ]
 
@@ -178,7 +181,7 @@ export default function Work() {
           <ul className={styles.list}>
             {items.map((it) => (
               <li key={it.label}>
-                <a href={`${import.meta.env.BASE_URL}assets/${it.file}`} target="_blank" rel="noopener">
+                <a href={it.href ?? `${import.meta.env.BASE_URL}assets/${it.file}`} target="_blank" rel="noopener noreferrer">
                   {it.label}
                 </a>
               </li>

@@ -83,7 +83,116 @@
 .subtitle {
   font-size: 1.125rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* AI chat text box */
+.chatWrapper {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.chatBox {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.chatBox.chatExpanded {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(244, 162, 97, 0.4);
+}
+
+.chatMessages {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chatUser {
+  text-align: right;
+}
+
+.chatAssistant {
+  text-align: left;
+}
+
+.chatBubble {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  max-width: 95%;
+}
+
+.chatUser .chatBubble {
+  background: rgba(244, 162, 97, 0.3);
+  color: white;
+}
+
+.chatAssistant .chatBubble {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.chatForm {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.chatInput {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  resize: none;
+  min-height: 2.5rem;
+}
+
+.chatInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.chatInput:focus {
+  outline: none;
+  border-color: #f4a261;
+}
+
+.chatSubmit {
+  background: #f4a261;
+  color: #264653;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chatSubmit:hover:not(:disabled) {
+  background: #e4974b;
+}
+
+.chatSubmit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.chatError {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: rgba(255, 200, 200, 0.9);
 }
 
 .cta {
