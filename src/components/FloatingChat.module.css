@@ -59,12 +59,38 @@
   z-index: 1002;
   display: flex;
   flex-direction: column;
-  animation: slideIn 0.3s ease;
+  animation: slideInRight 0.3s ease;
 }
 
-@keyframes slideIn {
+@keyframes slideInRight {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
+}
+
+/* Phone: popup from bottom, fill most of screen */
+@media (max-width: 768px) {
+  .panel {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: 85vh;
+    max-height: 85vh;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+  }
+
+  .panelHeader {
+    border-radius: 1rem 1rem 0 0;
+  }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 .panelHeader {
