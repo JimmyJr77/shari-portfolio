@@ -1,4 +1,3 @@
-import { createGroq } from '@ai-sdk/groq'
 import { streamText } from 'ai'
 
 // Context from Shari's portfolio: resume, site content, case studies, testimonials
@@ -54,15 +53,13 @@ export const config = {
 }
 
 export async function POST(request) {
-  const apiKey = process.env.GROQ_API_KEY
+  const apiKey = process.env.AI_GATEWAY_API_KEY
   if (!apiKey) {
     return Response.json(
-      { error: 'AI service not configured. Add GROQ_API_KEY to your Vercel environment variables.' },
+      { error: 'AI service not configured. Add AI_GATEWAY_API_KEY to your Vercel environment variables.' },
       { status: 500 }
     )
   }
-
-  const groq = createGroq({ apiKey })
 
   try {
     const body = await request.json().catch(() => ({}))
@@ -71,23 +68,18 @@ export async function POST(request) {
       : body.messages || []
 
     const result = streamText({
-      model: groq('openai/gpt-oss-20b'),
+      model: 'openai/gpt-4.1',
       system: SYSTEM_PROMPT,
       messages,
       maxOutputTokens: 8192,
-      temperature: 1,
-      topP: 1,
-      providerOptions: {
-        groq: { reasoningEffort: 'medium' },
-      },
-      onError: (e) => console.error('Groq stream error:', e),
+      onError: (e) => console.error('AI Gateway stream error:', e),
     })
 
     return result.toTextStreamResponse()
   } catch (err) {
     console.error('Chat API error:', err)
     return Response.json(
-      { error: err.message || 'AI request failed. Check GROQ_API_KEY and Vercel logs.' },
+      { error: err.message || 'AI request failed. Check AI_GATEWAY_API_KEY and Vercel logs.' },
       { status: 500 }
     )
   }
