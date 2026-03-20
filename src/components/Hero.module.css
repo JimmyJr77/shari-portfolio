@@ -9,7 +9,7 @@
 }
 
 .inner {
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
@@ -78,6 +78,23 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+.fadeWrapper {
+  display: block;
+  position: relative;
+  min-height: 3.5em;
+}
+
+.fadeText {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.fadeText.fadeActive {
+  opacity: 1;
 }
 
 .subtitle {
@@ -195,18 +212,164 @@
   color: rgba(255, 200, 200, 0.9);
 }
 
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .cta {
   display: inline-block;
   background-color: #f4a261;
   color: #264653;
+  font-size: 1rem;
   font-weight: 600;
+  font-family: inherit;
   padding: 0.75rem 1.5rem;
   border-radius: 0.375rem;
+  border: 2px solid #f4a261;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .cta:hover {
   background-color: #e4974b;
+  border-color: #e4974b;
+}
+
+.ctaSecondary {
+  display: inline-block;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.resumeWrapper {
+  position: relative;
+}
+
+.resumeBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+}
+
+.resumeDropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.25rem;
+  background: rgba(38, 70, 83, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  min-width: 140px;
+  z-index: 11;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.resumeOption {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.resumeOption:hover {
+  background: rgba(244, 162, 97, 0.3);
+}
+
+/* contact modal */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+
+.contactModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #264653 0%, #1e3a8a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  min-width: 280px;
+  max-width: 90vw;
+  z-index: 21;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contactModalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.contactLink {
+  color: #f4a261;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.125rem;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.contactLink:hover {
+  color: #e4974b;
+  text-decoration: underline;
+}
+
+.saveContactBtn {
+  margin-top: 0.5rem;
+  background: rgba(244, 162, 97, 0.2);
+  color: white;
+  border: 2px solid #f4a261;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.saveContactBtn:hover {
+  background: rgba(244, 162, 97, 0.35);
+  border-color: #e4974b;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+.modalClose:hover {
+  color: white;
 }
 
 /* small-screen fallback */

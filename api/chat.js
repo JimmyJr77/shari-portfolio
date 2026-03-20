@@ -1,4 +1,4 @@
-import { groq } from '@ai-sdk/groq'
+import { createGroq } from '@ai-sdk/groq'
 import { streamText } from 'ai'
 
 // Context from Shari's portfolio: resume, site content, case studies, testimonials
@@ -42,9 +42,11 @@ Michael Thompson: "Exceeded media targets on high-stakes launch"
 Emily Zhang: "30% lift in shares and comments"
 `.trim()
 
-const SYSTEM_PROMPT = `You are a helpful AI assistant representing Shari Arroyo-Brown's professional portfolio. Answer questions based ONLY on the following context about Shari's experience, expertise, and services. Be professional, concise, and helpful. If asked something not covered in the context, say you don't have that information and suggest reaching out directly to Shari.
+const SYSTEM_PROMPT = `You are an expert at Shari's resume and industry. When someone asks a question about supporting some work or task or how skills compare, your job is to communicate how Shari can best support the task or request based on the information contained in this website and in Shari's resume.
 
-CONTEXT:
+Be professional, concise, and helpful. If asked something not covered in the context, say you don't have that information and suggest reaching out directly to Shari.
+
+CONTEXT (from website and resume):
 ${SITE_CONTEXT}`
 
 export const config = {
@@ -60,18 +62,25 @@ export async function POST(request) {
     )
   }
 
+  const groq = createGroq({ apiKey })
+
   try {
-    const { messages } = await request.json()
+    const body = await request.json().catch(() => ({}))
+    const messages = body.messages || []
 
     const result = streamText({
-      model: groq('llama-3.3-70b-versatile'),
+      model: groq('llama-3.1-8b-instant'),  // Faster, more reliable for chat
       system: SYSTEM_PROMPT,
-      messages: messages || [],
+      messages,
+      onError: (e) => console.error('Groq stream error:', e),
     })
 
     return result.toDataStreamResponse()
   } catch (err) {
     console.error('Chat API error:', err)
-    return Response.json({ error: err.message || 'AI request failed' }, { status: 500 })
+    return Response.json(
+      { error: err.message || 'AI request failed. Check GROQ_API_KEY and Vercel logs.' },
+      { status: 500 }
+    )
   }
 }
