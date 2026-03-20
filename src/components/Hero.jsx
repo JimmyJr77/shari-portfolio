@@ -1,43 +1,19 @@
 // src/components/Hero.jsx
 import React, { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
-
+import { useContactModal } from '../context/ContactModalContext'
 
 const CV_URL = import.meta.env.BASE_URL + 'assets/Shari-CV.pdf'
-
-const CONTACT = {
-  name: 'Shari Arroyo-Brown',
-  phone: '347-954-5735',
-  phoneRaw: '3479545735',
-  email: 'sharibrown87@gmail.com',
-}
 
 const FADE_TEXTS = [
   'From federal reforms to multimillion-dollar philanthropic investments...',
   '...I transform complexity into clear narratives and measurable impact.',
 ]
 
-function downloadVCard() {
-  const vcard = [
-    'BEGIN:VCARD',
-    'VERSION:3.0',
-    `FN:${CONTACT.name}`,
-    `TEL;TYPE=CELL:${CONTACT.phoneRaw}`,
-    `EMAIL:${CONTACT.email}`,
-    'END:VCARD',
-  ].join('\r\n')
-  const blob = new Blob([vcard], { type: 'text/vcard' })
-  const a = document.createElement('a')
-  a.href = URL.createObjectURL(blob)
-  a.download = 'Shari-Arroyo-Brown.vcf'
-  a.click()
-  URL.revokeObjectURL(a.href)
-}
-
 export default function Hero() {
   const [angle, setAngle] = useState(0)
   const [resumeOpen, setResumeOpen] = useState(false)
-  const [connectOpen, setConnectOpen] = useState(false)
+  const { openContactModal } = useContactModal()
   const [fadeIndex, setFadeIndex] = useState(0)
   const photoUrl = import.meta.env.BASE_URL + 'assets/shari-photo.jpg'
 
@@ -116,37 +92,10 @@ export default function Hero() {
               </>
             )}
           </div>
-          <button type="button" className={styles.cta} onClick={() => setConnectOpen(true)}>
+          <button type="button" className={styles.cta} onClick={openContactModal}>
             Connect
           </button>
         </div>
-
-        {connectOpen && (
-          <>
-            <div
-              className={styles.modalBackdrop}
-              onClick={() => setConnectOpen(false)}
-              aria-hidden="true"
-            />
-            <div className={styles.contactModal} role="dialog" aria-labelledby="contact-modal-title">
-              <h2 id="contact-modal-title" className={styles.contactModalTitle}>
-                {CONTACT.name}
-              </h2>
-              <a href={`tel:${CONTACT.phoneRaw}`} className={styles.contactLink}>
-                {CONTACT.phone}
-              </a>
-              <a href={`mailto:${CONTACT.email}`} className={styles.contactLink}>
-                {CONTACT.email}
-              </a>
-              <button type="button" className={styles.saveContactBtn} onClick={downloadVCard}>
-                Save Contact
-              </button>
-              <button type="button" className={styles.modalClose} onClick={() => setConnectOpen(false)} aria-label="Close">
-                ×
-              </button>
-            </div>
-          </>
-        )}
       </div>
     </section>
   )

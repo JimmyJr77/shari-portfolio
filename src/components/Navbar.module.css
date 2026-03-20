@@ -35,6 +35,17 @@
   font-weight: 500;
 }
 
+.linkBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #264653;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 /* Hamburger - hidden on desktop */
 .hamburger {
   display: none;

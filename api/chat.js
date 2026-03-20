@@ -69,9 +69,15 @@ export async function POST(request) {
     const messages = body.messages || []
 
     const result = streamText({
-      model: groq('llama-3.1-8b-instant'),  // Faster, more reliable for chat
+      model: groq('openai/gpt-oss-20b'),
       system: SYSTEM_PROMPT,
       messages,
+      maxOutputTokens: 8192,
+      temperature: 1,
+      topP: 1,
+      providerOptions: {
+        groq: { reasoningEffort: 'medium' },
+      },
       onError: (e) => console.error('Groq stream error:', e),
     })
 

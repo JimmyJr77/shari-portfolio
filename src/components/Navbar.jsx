@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Navbar.module.css'
+import { useContactModal } from '../context/ContactModalContext'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const { openContactModal } = useContactModal()
   const toggle = () => setOpen((prev) => !prev)
+
+  const handleContactClick = () => {
+    setOpen(false)
+    openContactModal()
+  }
 
   return (
     <nav className={styles.nav}>
@@ -32,7 +39,7 @@ export default function Navbar() {
           <li><Link to="/#services" className={styles.link}>Services</Link></li>
           <li><Link to="/#cases"    className={styles.link}>Case Studies</Link></li>
           <li><Link to="/work"    className={styles.link}>Deliverables</Link></li>
-          <li><Link to="/#contact"  className={styles.link}>Contact</Link></li>
+          <li><button type="button" className={styles.linkBtn} onClick={handleContactClick}>Contact</button></li>
           <li><Link to="/about"     className={styles.link}>About</Link></li>
         </ul>
       </div>
