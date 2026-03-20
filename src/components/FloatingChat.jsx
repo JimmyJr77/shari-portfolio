@@ -76,7 +76,7 @@ export default function FloatingChat() {
 
             <form onSubmit={handleSubmit} className={styles.form}>
               <textarea
-                value={input}
+                value={input ?? ''}
                 onChange={handleInputChange}
                 placeholder={CHAT_PLACEHOLDER}
                 rows={2}
@@ -85,7 +85,7 @@ export default function FloatingChat() {
               />
               <button
                 type="submit"
-                disabled={isLoading || !input.trim()}
+                disabled={isLoading || !(input ?? '').trim()}
                 className={styles.submit}
               >
                 {isLoading ? '…' : 'Send'}

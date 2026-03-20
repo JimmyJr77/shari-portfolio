@@ -30,7 +30,7 @@ export default function HeroChat() {
         )}
         <form onSubmit={handleSubmit} className={styles.chatForm}>
           <textarea
-            value={input}
+            value={input ?? ''}
             onChange={handleInputChange}
             onFocus={() => setChatExpanded(true)}
             placeholder={CHAT_PLACEHOLDER}
@@ -38,7 +38,7 @@ export default function HeroChat() {
             disabled={isLoading}
             className={styles.chatInput}
           />
-          <button type="submit" disabled={isLoading || !input.trim()} className={styles.chatSubmit}>
+          <button type="submit" disabled={isLoading || !(input ?? '').trim()} className={styles.chatSubmit}>
             {isLoading ? '…' : 'Ask'}
           </button>
         </form>
