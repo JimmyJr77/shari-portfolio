@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
-import { useChat } from '@ai-sdk/react'
+import { useCompletion } from '@ai-sdk/react'
 import styles from './FloatingChat.module.css'
 
 const CHAT_PLACEHOLDER = 'Ask how Shari can support your project or task...'
 
 export default function FloatingChat() {
   const [open, setOpen] = useState(false)
-  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
+  const [lastPrompt, setLastPrompt] = useState('')
+  const { completion, input, setInput, handleInputChange, handleSubmit, isLoading, error } = useCompletion({
     api: '/api/chat',
     streamProtocol: 'text',
   })
+
+  const onSubmit = (e) => {
+    e?.preventDefault?.()
+    const text = (input ?? '').trim()
+    if (text) {
+      setLastPrompt(text)
+      setInput('')
+      handleSubmit(e)
+    }
+  }
 
   return (
     <>
@@ -48,22 +59,19 @@ export default function FloatingChat() {
             </header>
 
             <div className={styles.messages}>
-              {messages.length === 0 && !isLoading && (
+              {!lastPrompt && !completion && !isLoading && (
                 <p className={styles.placeholder}>
                   Ask about Shari's experience, skills, or how she can support your project.
                 </p>
               )}
-              {messages.map((m) => (
-                <div
-                  key={m.id}
-                  className={m.role === 'user' ? styles.messageUser : styles.messageAssistant}
-                >
-                  <div className={styles.bubbleInner}>{m.content}</div>
+              {lastPrompt && (
+                <div className={styles.messageUser}>
+                  <div className={styles.bubbleInner}>{lastPrompt}</div>
                 </div>
-              ))}
-              {isLoading && (
+              )}
+              {(completion || isLoading) && (
                 <div className={styles.messageAssistant}>
-                  <div className={styles.bubbleInner}>Thinking…</div>
+                  <div className={styles.bubbleInner}>{isLoading ? 'Thinking…' : completion}</div>
                 </div>
               )}
             </div>
@@ -74,7 +82,7 @@ export default function FloatingChat() {
               </p>
             )}
 
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form onSubmit={onSubmit} className={styles.form}>
               <textarea
                 value={input ?? ''}
                 onChange={handleInputChange}

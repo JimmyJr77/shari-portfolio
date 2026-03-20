@@ -66,7 +66,9 @@ export async function POST(request) {
 
   try {
     const body = await request.json().catch(() => ({}))
-    const messages = body.messages || []
+    const messages = body.prompt
+      ? [{ role: 'user', content: body.prompt }]
+      : body.messages || []
 
     const result = streamText({
       model: groq('openai/gpt-oss-20b'),
