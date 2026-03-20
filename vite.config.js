@@ -2,8 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-export default defineConfig(({ command }) => ({
-  base: command === 'serve' ? '/' : '/shari-portfolio/',  // '/' for local dev, '/shari-portfolio/' for GitHub Pages
+export default defineConfig({
+  base: '/',  // Vercel serves at root; change to '/shari-portfolio/' if using GitHub Pages
   plugins: [react()],
   resolve: {
     alias: {
@@ -11,6 +11,6 @@ export default defineConfig(({ command }) => ({
     },
   },
   build: {
-    outDir: 'docs',                // ← GitHub Pages will serve from docs/
+    outDir: 'dist',                // Vercel default
   },
-}))
+})

@@ -3,7 +3,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Hero.module.css'
 
-const SHOW_CHAT = false  // set to true to re-enable the AI Ask capability
+const SHOW_CHAT = true  // AI Ask: matches user requirements to Shari's experience (requires GROQ_API_KEY on Vercel)
 const HeroChat = SHOW_CHAT ? lazy(() => import('./HeroChat')) : null
 
 export default function Hero() {

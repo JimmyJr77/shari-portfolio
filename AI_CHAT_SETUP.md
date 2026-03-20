@@ -1,6 +1,8 @@
 # AI Chat Setup (Vercel + Groq)
 
-The hero section includes an AI-powered text box that answers questions about Shari's experience and expertise using context from the full site and resume.
+The hero section includes an AI-powered text box that matches user requirements to Shari's experience and expertise using context from the full site and resume.
+
+**Deployed on Vercel** — The `/api/chat` serverless function runs on Vercel. Add `GROQ_API_KEY` in your Vercel project: Settings → Environment Variables.
 
 ## LLM: Groq (Free Tier)
 
@@ -11,10 +13,12 @@ The hero section includes an AI-powered text box that answers questions about Sh
 1. **Get a free Groq API key**
    - Go to [console.groq.com](https://console.groq.com)
    - Sign up and create an API key
+   - **Never commit API keys to the repo** — use environment variables only
 
 2. **Add to Vercel environment variables**
    - In your Vercel project: Settings → Environment Variables
    - Add `GROQ_API_KEY` with your key (for Production, Preview, and Development)
+   - If a key was ever exposed (e.g. in chat), regenerate it at console.groq.com
 
 3. **Deploy**
    - Push to GitHub; Vercel will deploy automatically
