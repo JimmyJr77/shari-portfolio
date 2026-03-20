@@ -12,6 +12,7 @@ import {
   CalendarDays,
   UserCheck,
   Video,
+  X,
 } from 'lucide-react'
 import styles from './Work.module.css'
 
@@ -132,36 +133,24 @@ const SECTIONS = [
 export default function Work() {
   const [pw, setPw] = useState('')
   const [auth, setAuth] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const [selectedIdx, setSelectedIdx] = useState(0)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (pw === 'shariab1') {
       setAuth(true)
+      setShowModal(false)
     } else {
       alert('Incorrect password')
     }
   }
 
-  if (!auth) {
-    return (
-      <div className={styles.formWrapper}>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <label className={styles.label}>
-            Enter Password:
-            <input
-              type="password"
-              value={pw}
-              onChange={(e) => setPw(e.target.value)}
-              className={styles.input}
-            />
-          </label>
-          <button type="submit" className={styles.button}>
-            Submit
-          </button>
-        </form>
-      </div>
-    )
+  const handleLinkClick = (e, it) => {
+    if (!auth) {
+      e.preventDefault()
+      setShowModal(true)
+    }
   }
 
   const { icon: Icon, heading, desc, items, img } = SECTIONS[selectedIdx]
@@ -169,6 +158,37 @@ export default function Work() {
 
   return (
     <div className={styles.container}>
+      {/* Unlock modal */}
+      {showModal && !auth && (
+        <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className={styles.modalClose}
+              onClick={() => setShowModal(false)}
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+            <h3 className={styles.modalTitle}>Unlock to access project samples</h3>
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <label className={styles.label}>
+                Enter Password:
+                <input
+                  type="password"
+                  value={pw}
+                  onChange={(e) => setPw(e.target.value)}
+                  className={styles.input}
+                />
+              </label>
+              <button type="submit" className={styles.button}>
+                Unlock
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Main detail pane */}
       <div
         className={styles.detailPane}
@@ -181,7 +201,13 @@ export default function Work() {
           <ul className={styles.list}>
             {items.map((it) => (
               <li key={it.label}>
-                <a href={it.href ?? `${import.meta.env.BASE_URL}assets/${it.file}`} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={auth ? (it.href ?? `${import.meta.env.BASE_URL}assets/${it.file}`) : '#'}
+                  target={auth ? '_blank' : undefined}
+                  rel={auth ? 'noopener noreferrer' : undefined}
+                  onClick={(e) => handleLinkClick(e, it)}
+                  className={!auth ? styles.lockedLink : undefined}
+                >
                   {it.label}
                 </a>
               </li>
@@ -193,7 +219,7 @@ export default function Work() {
       {/* Sidebar navigation */}
       <nav className={styles.sidebar}>
         {SECTIONS.map((sec, i) => {
-          const Icon = sec.icon
+          const NavIcon = sec.icon
           return (
           <button
             key={sec.heading}
@@ -202,7 +228,7 @@ export default function Work() {
             }`}
             onClick={() => setSelectedIdx(i)}
           >
-            <Icon className={styles.icon} />
+            <NavIcon className={styles.icon} />
             <span className={styles.label}>{sec.heading}</span>
           </button>
           )

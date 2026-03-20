@@ -30,7 +30,6 @@ export default function CaseStudies() {
             <div className={styles.card}>
               <div className={styles.body}>
                 <h3 className={styles.title}>
-                  <span className={styles.icon}>🔒</span>
                   Explore All Deliverables
                 </h3>
                 <p className={styles.desc}>
