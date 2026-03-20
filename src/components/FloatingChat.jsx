@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useChat } from 'ai/react'
+import { useChat } from '@ai-sdk/react'
 import styles from './FloatingChat.module.css'
 
 const CHAT_PLACEHOLDER = 'Ask how Shari can support your project or task...'
@@ -8,6 +8,7 @@ export default function FloatingChat() {
   const [open, setOpen] = useState(false)
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
     api: '/api/chat',
+    streamProtocol: 'text',
   })
 
   return (

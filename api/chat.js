@@ -75,7 +75,7 @@ export async function POST(request) {
       onError: (e) => console.error('Groq stream error:', e),
     })
 
-    return result.toDataStreamResponse()
+    return result.toTextStreamResponse()
   } catch (err) {
     console.error('Chat API error:', err)
     return Response.json(
