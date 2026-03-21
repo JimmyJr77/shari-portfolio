@@ -269,6 +269,10 @@
   text-decoration: none;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
+.linkedInBtn svg {
+  fill: white;
+  stroke: white;
+}
 .linkedInBtn:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.9);

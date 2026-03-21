@@ -100,7 +100,7 @@ export default function Hero() {
             className={styles.linkedInBtn}
             aria-label="LinkedIn profile"
           >
-            <Linkedin size={22} strokeWidth={2} />
+            <Linkedin size={22} strokeWidth={2} fill="white" />
           </a>
           <button type="button" className={styles.cta} onClick={openContactModal}>
             Connect
