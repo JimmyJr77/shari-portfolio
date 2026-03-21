@@ -4,7 +4,6 @@ import Hero from '../components/Hero'
 import ParallaxBoard from '../components/ParallaxBoard'
 import Pillars from '../components/Pillars'
 import CaseStudies from '../components/CaseStudies'
-import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
       <Pillars />      {/* section with id="services" */}
       <ParallaxBoard />
       <CaseStudies />  {/* section with id="cases" */}
-      <Testimonials /> {/* section with id="testimonials" */}
       <ParallaxBoard />
       <Contact />      {/* section with id="contact" */}
     </div>

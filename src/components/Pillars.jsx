@@ -18,7 +18,7 @@ const PILLARS = [
     title: 'Crisis-Sheilding Leadership',
     description:
       'Creating strategies that protect C-suite leadership and the organization’s reputation and brand under high-stakes challenges.',
-    kpi: 'Zero negative press on $10M education finance launch'
+    kpi: 'zero negative press on $10M education-equity campaign launch'
   }
 ]
 
