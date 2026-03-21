@@ -1,5 +1,6 @@
 // src/components/Hero.jsx
 import React, { useState, useEffect } from 'react'
+import { Linkedin } from 'lucide-react'
 import styles from './Hero.module.css'
 import { useContactModal } from '../context/ContactModalContext'
 
@@ -92,6 +93,15 @@ export default function Hero() {
               </>
             )}
           </div>
+          <a
+            href="https://www.linkedin.com/in/shari-arroyo-brown/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.linkedInBtn}
+            aria-label="LinkedIn profile"
+          >
+            <Linkedin size={22} strokeWidth={2} />
+          </a>
           <button type="button" className={styles.cta} onClick={openContactModal}>
             Connect
           </button>
